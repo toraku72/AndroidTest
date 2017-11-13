@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Android Test</string>
+    <string name="true_button">"Đúng</string>
+    <string name="false_button">Sai</string>
+    <string name="next_button">Tiếp theo</string>
+    <string name="cheat_button_1">Quay cóp</string>
+    <string name="cheat_button_2">Dùng tài liệu</string>
+    <string name="finish_button">Hoàn thành</string>
+
+    <string name="correct_toast">Chính xác! Hãy tiếp tục.</string>
+    <string name="incorrect_toast">Sai rồi :( Cố gắng lên!</string>
+
+    <string name="question_1">Android là một hệ điều hành mở.</string>
+    <string name="question_2">Android sử dụng ngôn ngữ lập trình Pascal.</string>
+
+    <string name="warning_text_1">Bạn có chắc chắn?
+    \nQuay cóp có thể đưa ra đáp án sai và bạn có nguy cơ bị bắt.</string>
+    <string name="confirm_cheat_1">Tiếp tục quay cóp</string>
+    <string name="warning_text_2">Bạn có chắc chắn?
+    \nDùng tài liệu sẽ đưa ra đáp án đúng nhưng bạn có nguy cơ bị bắt cao.</string>
+    <string name="confirm_cheat_2">Tiếp tục dùng tài liệu</string>
+    <string name="go_back">Quay lại</string>
+
+    <string name="replay_button">Làm lại.</string>
+    <string name="result_text_view">Kết quả</string>
+    <string name="caught_text_view">Bạn đã bị bắt vì gian lận trong thi cử.\nHọc hành tử tế rồi thi lại nhé.</string>
+</resources>

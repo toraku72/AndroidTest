@@ -15,6 +15,7 @@ public class FinishActivity extends AppCompatActivity {
     private int mTotalAnswers;
     private TextView mResultTextView;
     private Button mReplayButton;
+    private Button mToHomeButton;
 
     public static Intent newIntent(Context packageContext, int correctAnswers, int totalAnswers) {
         Intent intent = new Intent(packageContext, FinishActivity.class);
@@ -30,9 +31,18 @@ public class FinishActivity extends AppCompatActivity {
 
         mResultTextView = (TextView) findViewById(R.id.result_text_view);
         mReplayButton = (Button) findViewById(R.id.replay_button);
+        mToHomeButton = (Button) findViewById(R.id.to_home_button);
         printScore();
 
         mReplayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = redoActivities();
+                startActivity(intent);
+            }
+        });
+
+        mToHomeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = clearActivities();
@@ -43,12 +53,18 @@ public class FinishActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+        startActivity(new Intent(this, ExamActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
         finish();
     }
 
     private Intent clearActivities() {
-        Intent intent = new Intent(FinishActivity.this, MainActivity.class);
+        Intent intent = new Intent(FinishActivity.this, HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        return intent;
+    }
+
+    private Intent redoActivities() {
+        Intent intent = new Intent(FinishActivity.this, ExamActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         return intent;
     }

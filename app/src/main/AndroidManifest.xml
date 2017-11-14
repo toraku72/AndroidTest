@@ -9,12 +9,7 @@
         android:roundIcon="@mipmap/ques_ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+        <activity android:name=".ExamActivity">
         </activity>
         <activity android:name=".Cheat1Activity">
         </activity>
@@ -23,6 +18,17 @@
         <activity android:name=".FinishActivity">
         </activity>
         <activity android:name=".CaughtActivity">
+        </activity>
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".HomeActivity">
         </activity>
     </application>
 

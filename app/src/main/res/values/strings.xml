@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Android Test</string>
+
+    <string name="start_button">Bắt đầu</string>
+    <string name="quit_button">Thoát</string>
+
     <string name="true_button">"Đúng</string>
     <string name="false_button">Sai</string>
     <string name="next_button">Tiếp theo</string>
@@ -9,9 +13,28 @@
 
     <string name="correct_toast">Chính xác! Hãy tiếp tục.</string>
     <string name="incorrect_toast">Sai rồi :( Cố gắng lên!</string>
+    <string name="finish_toast">Bạn đã trả lời hết câu hỏi.\nBấm hoàn thành để xem kết quả.</string>
 
     <string name="question_1">Android là một hệ điều hành mở.</string>
     <string name="question_2">Android sử dụng ngôn ngữ lập trình Pascal.</string>
+    <string name="question_3">Tên phiên bản Android 8.0 mới nhất là Oreo.</string>
+    <string name="question_4">Activity là một trong những thành phần chính của Android.</string>
+    <string name="question_5">AppCompatActivity là lớp cha của Activity.</string>
+    <string name="question_6">Phương thức findViewById(int id) sẽ trả về một đối tượng View.</string>
+    <string name="question_7">Custom ListView đòi hỏi một custom Adapter tương ứng với nó.</string>
+    <string name="question_8">Button và ImageButton đều được kế thừa từ ImageView.</string>
+    <string name="question_9">Bundle nằm trong thư viện android.support .</string>
+    <string name="question_10">Có 2 dạng Intent là Implicit và Explicit.</string>
+    <string name="question_11"></string>
+    <string name="question_12"></string>
+    <string name="question_13"></string>
+    <string name="question_14"></string>
+    <string name="question_15"></string>
+    <string name="question_16"></string>
+    <string name="question_17"></string>
+    <string name="question_18"></string>
+    <string name="question_19"></string>
+    <string name="question_20"></string>
 
     <string name="warning_text_1">Bạn có chắc chắn?
     \nQuay cóp có thể đưa ra đáp án sai và bạn có nguy cơ bị bắt.</string>
@@ -21,7 +44,8 @@
     <string name="confirm_cheat_2">Tiếp tục dùng tài liệu</string>
     <string name="go_back">Quay lại</string>
 
-    <string name="replay_button">Làm lại.</string>
+    <string name="replay_button">Thi lại</string>
     <string name="result_text_view">Kết quả</string>
+    <string name="to_home_button">Về màn hình chính</string>
     <string name="caught_text_view">Bạn đã bị bắt vì gian lận trong thi cử.\nHọc hành tử tế rồi thi lại nhé.</string>
 </resources>

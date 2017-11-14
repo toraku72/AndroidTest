@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class ExamActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_CHEAT_1 = 1;
     private static final int REQUEST_CODE_CHEAT_2 = 2;
     private static final int REQUEST_CODE_FINISH = 20;
@@ -30,13 +30,23 @@ public class MainActivity extends AppCompatActivity {
     private int mCurrentIndex = 0;
     private Question[] mQuestionBank = {
             new Question(R.string.question_1, true),
-            new Question(R.string.question_2, false)
+            new Question(R.string.question_2, false),
+            new Question(R.string.question_3, true),
+            new Question(R.string.question_4, true),
+            new Question(R.string.question_5, false),
+            new Question(R.string.question_6, true),
+            new Question(R.string.question_7, true),
+            new Question(R.string.question_8, false),
+            new Question(R.string.question_9, false),
+            new Question(R.string.question_10, true),
+
+
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_exam);
 
         if (savedInstanceState != null) {
             mCurrentIndex = savedInstanceState.getInt(KEY_CURRENT_INDEX);
@@ -77,7 +87,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     mNextButton.setClickable(false);
+                    Toast.makeText(ExamActivity.this, R.string.finish_toast, Toast.LENGTH_SHORT).show();
                     mFinishButton.setVisibility(View.VISIBLE);
+
                 }
             }
         });
@@ -86,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boolean answerIsTrue = mQuestionBank[mCurrentIndex].isAnswerTrue();
-                Intent intent = Cheat1Activity.newIntent(MainActivity.this, answerIsTrue);
+                Intent intent = Cheat1Activity.newIntent(ExamActivity.this, answerIsTrue);
                 startActivityForResult(intent, REQUEST_CODE_CHEAT_1);
             }
         });
@@ -95,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boolean answerIsTrue = mQuestionBank[mCurrentIndex].isAnswerTrue();
-                Intent intent = Cheat2Activity.newIntent(MainActivity.this, answerIsTrue);
+                Intent intent = Cheat2Activity.newIntent(ExamActivity.this, answerIsTrue);
                 startActivityForResult(intent, REQUEST_CODE_CHEAT_2);
             }
         });
@@ -104,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int totalAnswers = mQuestionBank.length;
-                Intent intent = FinishActivity.newIntent(MainActivity.this, mCorrectCount, totalAnswers);
+                Intent intent = FinishActivity.newIntent(ExamActivity.this, mCorrectCount, totalAnswers);
                 startActivityForResult(intent, REQUEST_CODE_FINISH);
             }
         });
@@ -151,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void checkAnswer(boolean userPressedTrue) {
         boolean answerIsTrue = mQuestionBank[mCurrentIndex].isAnswerTrue();
-        int messageResId = 0;
+        int messageResId;
         if (answerIsTrue == userPressedTrue) {
             mCorrectCount++;
             messageResId = R.string.correct_toast;
@@ -159,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
         else {
             messageResId = R.string.incorrect_toast;
         }
-        Toast.makeText(MainActivity.this, messageResId, Toast.LENGTH_SHORT).show();
+        Toast.makeText(ExamActivity.this, messageResId, Toast.LENGTH_SHORT).show();
     }
 
     private void updateQuestion() {

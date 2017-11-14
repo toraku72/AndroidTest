@@ -7,7 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 public class CaughtActivity extends AppCompatActivity {
-    Button mReplayButton;
+    private Button mReplayButton;
+    private Button mToHomeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +16,17 @@ public class CaughtActivity extends AppCompatActivity {
         setContentView(R.layout.activity_caught);
 
         mReplayButton = (Button) findViewById(R.id.replay_button_caught);
+        mToHomeButton = (Button) findViewById(R.id.to_home_button);
+
         mReplayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = redoActivities();
+                startActivity(intent);
+            }
+        });
+
+        mToHomeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = clearActivities();
@@ -23,17 +34,21 @@ public class CaughtActivity extends AppCompatActivity {
             }
         });
     }
-
-
     private Intent clearActivities() {
-        Intent intent = new Intent(CaughtActivity.this, MainActivity.class);
+        Intent intent = new Intent(CaughtActivity.this, HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        return intent;
+    }
+
+    private Intent redoActivities() {
+        Intent intent = new Intent(CaughtActivity.this, ExamActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         return intent;
     }
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+        startActivity(new Intent(this, ExamActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
         finish();
     }
 }
